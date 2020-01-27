@@ -139,26 +139,6 @@ def limpa_processa(a,x):
 
 def find_return(str1):
     
-    # Remoção de disclaimers e trechos padrão
-    str2 = re.sub('Agente[^>]+Autonomo[^>]+atua[^>]+CVM[^>]+3710', '', str1).strip()
-    str2 = re.sub('http.{0,60}click[^>]+CONTIDAS[^>]+COMPLEMENTARES[^>]+3710[^>]+VAREJO', '', str2).strip()
-    str2 = re.sub('Esse[^>]+email[^>]+enviado[^>]+para[^>]+@}', '', str2).strip()
-    
-    str2 = re.sub('clique[^>]+aqui[^>]+recuperar[^>]+senha[^>]+automatic', '', str2).strip()
-    str2 = re.sub('xpicombr', '', str2).strip()
-    str2 = re.sub('aspxf', '', str2).strip()
-    
-    str2 = re.sub('Caso.{0,5}nao[^>]+queira[^>]+nossos[^>]+xpnews[^>]+XP[^>]+132', '', str2).strip()
-    str2 = re.sub('http:[^>]+xpi[^>]+SP[^>]+75[^>]+Miami[^>]+10017', '', str2).strip()
-    str2 = re.sub('http:[^>]+facebook[^>]+instagram[^>]+anexos[^>]+lei[^>]+dirigida[^>]+contidas[^>]+autor[^>]+XP[^>]+3710', '', str2).strip()
-    str2 = re.sub('Important[^>]+any[^>]+may[^>]+only[^>]+accept[^>]+copy[^>]+written[^>]+XP[^>]+lost[^>]+e-mail', '', str2).strip()
-    str2 = re.sub('Obter[^>]+https[^>]+Outlook[^>]+Android', '', str2).strip()
-    str2 = re.sub('Este.{0,10}material[^>]+XP[^>]+nao[^>]+deve[^>]+ser[^>]+indicati[^>]+garantia[^>]+fundo[^>]+responsabiliza[^>]+3710[^>]+FUNDO[^>]+FGC[^>]+VAREJO[^>]+garantia[^>]+receber[^>]+e-mails', '', str2).strip()
-    
-    str2 = re.sub('saiba.{0,3}mais[^>]+disclaimer[^>]+xp[^>]+auxiliar[^>]+risco[^>]+signatario[^>]+cumprimento[^>]+apimec[^>]+ancord[^>]+suitability[^>]+futuros[^>]+provaveis[^>]+termo[^>]+commodity[^>]+consubstanciar[^>]+desempenho.{0,5}investimento', '', str2).strip()
-    str2 = re.sub('disclaimer[^>]+xp[^>]+auxiliar[^>]+risco[^>]+signatario[^>]+cumprimento[^>]+apimec[^>]+ancord[^>]+suitability[^>]+futuros[^>]+provaveis[^>]+termo[^>]+commodity[^>]+consubstanciar[^>]+desempenho.{0,5}investimento', '', str2).strip()
-    str2 = re.sub('esta instituicao.{0,5}aderente.{0,5}codigo anbima.{0,5}regulacao.{0,5}melhores praticas.{0,7}atividade.{0,5}distribuicao.{0,5}produtos.{0,5}investimento.{0,5}varejo', '', str2).strip()
-    
     # Remoção de códigos de clientes
     str2 = re.sub('cliente \d{6}', '', str2).strip()
     str2 = re.sub('Cliente \d{6}', '', str2).strip()

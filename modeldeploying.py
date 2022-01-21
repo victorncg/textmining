@@ -1,6 +1,10 @@
-# Código para classificação de e-mails
+# TEXT MINING
+# Código para classificação de mensagens
 # Esse código é utilizado para classificar e-mails novos com um modelo já treinado previamente
-# ==================================================================================================================
+# Ele foi criado em 2019 com o objetivo de auxiliar na detecção de anomalias através
+# de mensagens trocadas
+# ===================================================================================================
+
 # Número de e-mails
 a = 100000
 
@@ -66,26 +70,26 @@ print(" ")
 
 print("2. ESTABELECENDO CONEXÕES COM AS BASES DE DADOS")
 
-print("2. Vamos abrir ", str(a), " e-mails")
+print("2. Vamos abrir ", str(a), " mensagens")
 
 basestime = time.time()
 
-server = 'SP2DBI01'
-database = 'SQL_XP_DATALAKE'
-username = 'usr_xp_compliance'
-password = 'usr_xp_compliance'
-driver= '{ODBC Driver 13 for SQL Server}'
+server = ''
+database = ''
+username = ''
+password = ''
+driver= '{}'
 strconn = 'DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password
 cnn = pyodbc.connect(strconn)
 
 querya = "SELECT TOP ("
-queryb = ") *  FROM [SQL_XP_DATALAKE].[dbo].[bhsxp_messages]"
+queryb = ") *  FROM [].[dbo].[]"
 
 query = querya + str(a) + queryb
 
 df = pd.read_sql_query(query, cnn)
 
-print("2. ", str(a), " E-mails abertos")
+print("2. ", str(a), " Mensagens abertas")
 
 # Exibição do resultado do código
 print("2. Tempo de estabelecimento das conexões com as bases de dados foi de ","%s segundos" % (time.time() - basestime))
@@ -224,10 +228,8 @@ def find_return(str1):
     str2 = re.sub('Esse[^>]+email[^>]+enviado[^>]+para[^>]+@}', '', str2).strip()
     
     str2 = re.sub('clique[^>]+aqui[^>]+recuperar[^>]+senha[^>]+automatic', '', str2).strip()
-    str2 = re.sub('xpicombr', '', str2).strip()
     str2 = re.sub('aspxf', '', str2).strip()
     
-    str2 = re.sub('Caso.{0,5}nao[^>]+queira[^>]+nossos[^>]+xpnews[^>]+XP[^>]+132', '', str2).strip()
     str2 = re.sub('http:[^>]+xpi[^>]+SP[^>]+75[^>]+Miami[^>]+10017', '', str2).strip()
     str2 = re.sub('http:[^>]+facebook[^>]+instagram[^>]+anexos[^>]+lei[^>]+dirigida[^>]+contidas[^>]+autor[^>]+XP[^>]+3710', '', str2).strip()
     str2 = re.sub('Important[^>]+any[^>]+may[^>]+only[^>]+accept[^>]+copy[^>]+written[^>]+XP[^>]+lost[^>]+e-mail', '', str2).strip()

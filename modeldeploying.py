@@ -228,10 +228,8 @@ def find_return(str1):
     str2 = re.sub('Esse[^>]+email[^>]+enviado[^>]+para[^>]+@}', '', str2).strip()
     
     str2 = re.sub('clique[^>]+aqui[^>]+recuperar[^>]+senha[^>]+automatic', '', str2).strip()
-    str2 = re.sub('xpicombr', '', str2).strip()
     str2 = re.sub('aspxf', '', str2).strip()
     
-    str2 = re.sub('Caso.{0,5}nao[^>]+queira[^>]+nossos[^>]+xpnews[^>]+XP[^>]+132', '', str2).strip()
     str2 = re.sub('http:[^>]+xpi[^>]+SP[^>]+75[^>]+Miami[^>]+10017', '', str2).strip()
     str2 = re.sub('http:[^>]+facebook[^>]+instagram[^>]+anexos[^>]+lei[^>]+dirigida[^>]+contidas[^>]+autor[^>]+XP[^>]+3710', '', str2).strip()
     str2 = re.sub('Important[^>]+any[^>]+may[^>]+only[^>]+accept[^>]+copy[^>]+written[^>]+XP[^>]+lost[^>]+e-mail', '', str2).strip()

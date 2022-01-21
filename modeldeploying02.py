@@ -1,5 +1,18 @@
+# FRAUD DETECTION
+
+# Este código foi criado com o objetivo de identificar padrões em textos de redes sociais para 
+# sinalizar possíveis fraudes. Os padrões que estão sendo procurados aqui foram antes estudados
+# para entender a relação que possuiam com fraudes de fato
+
+# Versão 1.2.0
+
 import pickle
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+path = os.getcwd()
+
 import re
 import nltk
 from nltk.corpus import stopwords
@@ -29,12 +42,8 @@ from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 from sklearn.model_selection import ShuffleSplit
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
 
-import os
-path = os.getcwd()
+
 
 
 
@@ -504,18 +513,19 @@ import warnings
 
 inittime = time.time()
 
-server = 'SP2DBI01'
-database = 'SQL_XP_DATALAKE'
-username = 'usr_xp_compliance'
-password = 'usr_xp_compliance'
+server = ''
+database = ''
+username = ''
+password = ''
 driver= '{ODBC Driver 13 for SQL Server}'
+
 strconn = 'DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password
 cnn = pyodbc.connect(strconn)
 
 for i in range(inicio,fim):
     reftime = time.time()
     print("Início de execução do código para a base",i)
-    string = 'SELECT *  FROM [SQL_XP_DATALAKE].[dbo].[tb_bhsxp_messages_'
+    string = 'SELECT *  FROM [].[dbo].['
     query = string + str(i) + ']'
     #print(query)
     df = pd.read_sql_query(query, cnn)

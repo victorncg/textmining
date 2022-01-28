@@ -55,17 +55,6 @@ def remove_variaveis(str1):
 
     remocaotime = time.time()
 
-    str2 = str1.drop(['LastModifiedDateTime', 'ReceivedDateTime',
-              'SentDateTime', 'InternetMessageId',
-              'ParentFolderId', 'IsDeliveryReceiptRequested',
-              'ConversationIndex', 'MentionsPreview',
-              'FromName', 'FromEmailAddress',
-              'ToEmailAddress', 'ToName','WebLink', 'InferenceClassification',
-              'BodyPreview', 'BodyContentType',
-              'ChangeKey', 'ConversationId',
-              'FlagStatus', 'HasAttachments',
-              'Id'], axis = 1)
-
     print("Tempo de remoção das variáveis foi de ","%s segundos" % round((time.time() - remocaotime),2))
      
     # Regular Expression that matches digits in between a string 

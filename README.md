@@ -8,6 +8,7 @@ Rotinas:
 * REGEX
 * Sentiment Analysis
 * Word Clouds
+* Deploy de modelo de ML para classificação de texto
 /
 
 Novos updates

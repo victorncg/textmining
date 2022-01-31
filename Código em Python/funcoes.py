@@ -1,5 +1,22 @@
 # Código criado para armazenar as funções de Text Mining
 
+
+def limpeza(n):
+    
+    c = bleach.clean(n, strip=True)
+
+    for i in bad_chars : 
+        c = c.replace(i, '') 
+    
+    for i in string_email : 
+        c = c.replace(i, ' ')     
+
+    d = c.replace(';', ',')
+    d = d.replace('\r', '')
+    d = d.replace('\n', '')
+    
+    return d
+
 def remove_variaveis(str1):
     
     print("REMOÇÃO DE VARIÁVEIS - Função remove_variaveis()")

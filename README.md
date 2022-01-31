@@ -9,3 +9,6 @@ Rotinas:
 * Sentiment Analysis
 * Word Clouds
 /
+
+Novos updates
+1. Separar funções de Python em um arquivo à parte

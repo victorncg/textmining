@@ -13,3 +13,4 @@ Rotinas:
 
 Novos updates
 1. Separar funções de Python em um arquivo à parte
+2. Separar arquivos conforme tarefas, ex.: separação e processamento de texto

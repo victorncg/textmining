@@ -425,3 +425,67 @@ def exec_inteiro(df,x):
     #print("Tempo de execução do código foi de ","%s segundos" % (time.time() - reftime))
 
     return tox
+
+
+def find_return(str1):
+    
+    # Remoção de disclaimers e trechos padrão
+    
+    str2 = re.sub('clique[^>]+aqui[^>]+recuperar[^>]+senha[^>]+automatic', '', str2).strip()
+    str2 = re.sub('aspxf', '', str2).strip()
+    
+    
+    # Remoção de códigos de clientes
+    str2 = re.sub('cliente \d{6}', '', str2).strip()
+    str2 = re.sub('Cliente \d{6}', '', str2).strip()
+    str2 = re.sub('codigo \d{7}', '', str2).strip()
+    str2 = re.sub('codigo \d{6}', '', str2).strip()
+    str2 = re.sub('conta.{0,6}\d{6}.{0,3}', '', str2).strip()
+    
+    # Remoção de horas    
+    str2 = re.sub('\d{2}:\d{2}', '', str2).strip()
+    str2 = re.sub('\d{2}h.{0,1}', '', str2).strip()
+ 
+    # Remoção de caracteres especiais 
+    str2 = re.sub('CPA.{0,1}\d{2}', '', str2).strip()
+    str2 = re.sub('&#\d{5}', '', str2).strip()
+    str2 = re.sub('image\d{3}.jpg', '', str2).strip()
+    str2 = re.sub('image\d{3}.png', '', str2).strip()
+    str2 = re.sub('Instrucao Normativa.{0,10} \d{3}/\d{2}', '', str2).strip()
+    
+    # Remoção de telefones
+    str2 = re.sub('\d{2}.{0,2}\d{4}.{0,1}\d{4}', '', str2).strip()
+    str2 = re.sub('\([^)]*\).{0,3}\d{5}.{0,3}\d{4}', '', str2).strip()
+    str2 = re.sub('\([^)]*\).{0,3}\d{4}.{0,3}\d{4}', '', str2).strip()
+    str2 = re.sub('\d{2}\d{5}-\d{4}', '', str2).strip()   
+    str2 = re.sub('\d{2}\d{4}-\d{4}', '', str2).strip()  
+    str2 = re.sub('\d{4}.{0,4}\d{5}', '', str2).strip()
+    str2 = re.sub('\d{4}.{0,3}\d{4}', '', str2).strip()
+    str2 = re.sub('\d{4}.{0,3}\d{3}.{0,3}\d{4}', '', str2).strip()    
+    str2 = re.sub('VOIP.{0,3}\d{4}.{0,3}', '', str2).strip()
+    
+    # Remoção de datas
+    str2 = re.sub('\d{2}/\d{2}/\d{4}', '', str2).strip()
+    str2 = re.sub('\d{2}/\d{2}/\d{2}', '', str2).strip()    
+    str2 = re.sub('\d{2}/\d{2}/\d{4}', '', str2).strip()    
+    str2 = re.sub('\d{2}-\d{2}-\d{4}', '', str2).strip()    
+    str2 = re.sub('Em \d{1} de.{0,5}de \d{4}', '', str2).strip()    
+    str2 = re.sub('Em.{0,5} \d{2} de.{0,5}de \d{4}', '', str2).strip()    
+    str2 = re.sub('em \d{1} de.{0,5}de \d{4}', '', str2).strip()    
+    str2 = re.sub('em.{0,5} \d{2} de.{0,5}de \d{4}', '', str2).strip()    
+    str2 = re.sub('milhoes', '000000', str2).strip()
+    str2 = re.sub('mm ', '000000', str2).strip()
+    
+    # Remoção de CEPS
+    str2 = re.sub('\d{5}-\d{3}', '', str2).strip()
+    
+    str3 = str2.replace('.', '')
+    
+    # Regular Expression that matches digits in between a string 
+    return (str3)
+
+# Definição da função "find_sum"
+def find_sum(str1):
+        
+    # Regular Expression that matches digits in between a string 
+    return sum(map(int,re.findall('\d+',str1)))

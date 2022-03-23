@@ -519,17 +519,17 @@ import warnings
 
 inittime = time.time()
 
-server = 'SP2DBI01'
-database = 'SQL_XP_DATALAKE'
-username = 'usr_xp_compliance'
-password = 'usr_xp_compliance'
+server = ''
+database = ''
+username = ''
+password = ''
 driver= '{ODBC Driver 13 for SQL Server}'
 strconn = 'DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password
 cnn = pyodbc.connect(strconn)
 
 for i in range(inicio,fim):
     reftime = time.time()
-    string = 'SELECT TOP (100000) *  FROM [SQL_XP_DATALAKE].[dbo].[tb_bhsxp_messages_'
+    string = 'SELECT TOP (100000) *  FROM [].[dbo].['
     query = string + str(i) + ']'
     #print(query)
     df = pd.read_sql_query(query, cnn)
